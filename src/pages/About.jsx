@@ -38,7 +38,7 @@ export default function About() {
             </p>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="aspect-w-4 rounded-2xl overflow-hidden shadow-md border border-gold/10">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-gold/10">
               <img
                 src="https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=800&q=80"
                 alt="Hands crafting jewellery"
@@ -52,7 +52,7 @@ export default function About() {
         {/* SECTION 2: Our Mission */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="aspect-w-4 rounded-2xl overflow-hidden shadow-md border border-gold/10">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-gold/10">
               <img
                 src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80"
                 alt="Elegant necklace presentation"
@@ -92,7 +92,7 @@ export default function About() {
             </p>
           </div>
           <div className="order-1 lg:order-2">
-            <div className="aspect-w-4 rounded-2xl overflow-hidden shadow-md border border-gold/10">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-gold/10">
               <img
                 src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"
                 alt="Handmade jewelry materials workbench"
@@ -106,7 +106,7 @@ export default function About() {
         {/* SECTION 4: Quality Commitment */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="aspect-w-4 rounded-2xl overflow-hidden shadow-md border border-gold/10">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-gold/10">
               <img
                 src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
                 alt="Pearls and details check"

@@ -24,7 +24,7 @@ export default function ProductDetails() {
           <span>Loading...</span>
         </button>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 animate-pulse-subtle">
-          <div className="lg:col-span-7 aspect-w-4 bg-cream-dark/30 rounded-2xl" />
+          <div className="lg:col-span-7 aspect-[4/5] bg-cream-dark/30 rounded-2xl" />
           <div className="lg:col-span-5 space-y-6">
             <div className="h-4 bg-cream-dark/40 rounded w-1/4" />
             <div className="h-10 bg-cream-dark/40 rounded w-3/4" />
@@ -67,9 +67,11 @@ export default function ProductDetails() {
   const { name, category, description, price, materials, images } = product;
 
   // Compute active image dynamically: fallback to the first product image if no manual selection exists
-  const activeImage = (images && images.includes(selectedImage))
+  const activeImage = (images && images.includes(selectedImage) && selectedImage)
     ? selectedImage
-    : (images && images[0]) || '';
+    : (images && images.length > 0 && images[0])
+      ? images[0]
+      : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80';
 
   // Order message customization
   const orderMessage = encodeURIComponent(`Hi Vaishus Hub,
@@ -107,7 +109,7 @@ Please guide me regarding payment and delivery. Thank you!`);
         {/* Left Side: Image Gallery (Col 1-7) */}
         <div className="lg:col-span-7 space-y-4">
           {/* Main Visual Display */}
-          <div className="aspect-w-4 rounded-2xl overflow-hidden border border-gold/10 bg-cream shadow-md relative">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gold/10 bg-cream shadow-md relative">
             <img
               src={activeImage}
               alt={name}

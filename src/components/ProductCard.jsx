@@ -37,7 +37,7 @@ Thank you.`;
   return (
     <div className="group bg-white rounded-2xl border border-gold/10 overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full transform hover:-translate-y-1 bg-cream-light/30">
       {/* Product Image Container */}
-      <div className="relative aspect-w-4 overflow-hidden bg-cream-dark">
+      <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
         <img
           src={image}
           alt={name}

@@ -8,7 +8,6 @@ export default function Navbar() {
   console.log('Logo path:', logo);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const location = useLocation();
 
   // Handle transparent to white/glass transition on scroll
@@ -28,7 +27,6 @@ export default function Navbar() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(false);
-      setMobileDropdownOpen(false);
     }, 0);
     return () => clearTimeout(timer);
   }, [location]);
@@ -211,44 +209,44 @@ export default function Navbar() {
               Home
             </NavLink>
 
-            {/* Mobile Accordion for Collections */}
-            <div>
-              <button
-                onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-                className={`flex items-center justify-between w-full font-sans text-sm font-medium tracking-wide pb-1 transition-colors text-left border-b border-gold/5 ${mobileDropdownOpen ? 'text-gold' : 'text-luxury-charcoal/80'
-                  }`}
-              >
-                <span>Collections</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-300 ${mobileDropdownOpen ? 'rotate-180' : ''
-                    }`}
-                />
-              </button>
-
-              <div
-                className={`transition-all duration-300 overflow-hidden pl-4 ${mobileDropdownOpen ? 'max-h-48 opacity-100 mt-2 space-y-3' : 'max-h-0 opacity-0'
-                  }`}
-              >
-                {collections.map((col) => (
-                  <Link
-                    key={col.path}
-                    to={col.path}
-                    className="block font-sans text-xs font-medium text-luxury-charcoal/70 hover:text-gold transition-colors py-1"
-                  >
-                    {col.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             <NavLink
-              to="/products"
+              to="/category/earrings-jhumkas"
               className={({ isActive }) =>
                 `font-sans text-sm font-medium tracking-wide pb-1 transition-colors ${isActive ? 'text-gold border-b border-gold/25' : 'text-luxury-charcoal/80 hover:text-gold'
                 }`
               }
             >
-              Shop Catalogue
+              Earrings
+            </NavLink>
+
+            <NavLink
+              to="/category/necklaces-chokers"
+              className={({ isActive }) =>
+                `font-sans text-sm font-medium tracking-wide pb-1 transition-colors ${isActive ? 'text-gold border-b border-gold/25' : 'text-luxury-charcoal/80 hover:text-gold'
+                }`
+              }
+            >
+              Necklaces
+            </NavLink>
+
+            <NavLink
+              to="/category/bracelets-bangles"
+              className={({ isActive }) =>
+                `font-sans text-sm font-medium tracking-wide pb-1 transition-colors ${isActive ? 'text-gold border-b border-gold/25' : 'text-luxury-charcoal/80 hover:text-gold'
+                }`
+              }
+            >
+              Bracelets
+            </NavLink>
+
+            <NavLink
+              to="/category/custom-gifts"
+              className={({ isActive }) =>
+                `font-sans text-sm font-medium tracking-wide pb-1 transition-colors ${isActive ? 'text-gold border-b border-gold/25' : 'text-luxury-charcoal/80 hover:text-gold'
+                }`
+              }
+            >
+              Custom Gifts
             </NavLink>
 
             <NavLink
@@ -258,7 +256,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Our Story
+              About
             </NavLink>
 
             <NavLink
@@ -268,7 +266,7 @@ export default function Navbar() {
                 }`
               }
             >
-              Contact Us
+              Contact
             </NavLink>
           </div>
         </div>

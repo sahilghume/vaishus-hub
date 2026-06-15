@@ -6,7 +6,7 @@ export default function CategoryCard({ category }) {
   return (
     <Link
       to={path}
-      className="group relative block aspect-w-4 overflow-hidden rounded-2xl shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-xl transition-all duration-500 bg-cream-dark transform hover:-translate-y-1"
+      className="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-md border border-gold/10 hover:border-gold/30 hover:shadow-xl transition-all duration-500 bg-cream-dark transform hover:-translate-y-1"
     >
       {/* Category Image */}
       <img

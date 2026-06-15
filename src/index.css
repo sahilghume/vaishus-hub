@@ -76,22 +76,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Aspect ratio helpers for card images */
-.aspect-w-4 {
-  position: relative;
-  padding-bottom: 125%; /* 4:5 Aspect Ratio */
-}
 
-.aspect-w-4 > img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  object-fit: cover;
-}
 
 @layer base {
   body {

@@ -3,7 +3,7 @@ export default function ProductSkeleton() {
   return (
     <div className="group bg-white rounded-2xl border border-gold/10 overflow-hidden shadow-sm flex flex-col h-full animate-pulse-subtle">
       {/* Product Image Skeleton Container */}
-      <div className="relative aspect-w-4 bg-cream-dark/40">
+      <div className="relative aspect-[4/5] bg-cream-dark/40">
         {/* Aspect Ratio Box with Shimmer */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_1.5s_infinite]" />
       </div>

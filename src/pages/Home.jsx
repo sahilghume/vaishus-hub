@@ -24,19 +24,19 @@ export default function Home() {
   return (
     <div className="pb-20 animate-fade">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-cream pt-10 sm:pt-6 overflow-hidden">
+      <section className="relative min-h-[70vh] md:min-h-[90vh] flex items-center justify-center bg-cream pt-10 sm:pt-6 overflow-hidden">
         {/* Soft background decor */}
         <div className="absolute top-[-30%] left-[-10%] w-[60%] aspect-square rounded-full bg-gold/5 blur-3xl" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] aspect-square rounded-full bg-gold/5 blur-3xl" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
           {/* Copy Column */}
           <div className="space-y-6 text-left max-w-xl">
             <div className="inline-flex items-center space-x-2 bg-gold/10 text-gold-dark border border-gold/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest">
               <span>Handcrafted With Love</span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold text-luxury-black tracking-wide leading-none">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-luxury-black tracking-wide leading-none">
               VAiSHU's Hub
             </h1>
 
@@ -49,20 +49,20 @@ export default function Home() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4 w-full sm:w-auto">
               <button
                 onClick={handleScrollToCategories}
-                className="flex items-center justify-center space-x-2 bg-luxury-black text-cream-light hover:bg-gold hover:text-luxury-black border border-gold/15 px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg"
+                className="flex items-center justify-center space-x-2 bg-luxury-black text-cream-light hover:bg-gold hover:text-luxury-black border border-gold/15 px-6 py-3.5 md:px-8 md:py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto cursor-pointer"
               >
                 <span>Explore Collection</span>
                 <ArrowDown className="w-4 h-4" />
               </button>
-
+              
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center space-x-2 bg-white text-luxury-charcoal hover:bg-cream border border-gold/20 px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow"
+                className="flex items-center justify-center space-x-2 bg-white text-luxury-charcoal hover:bg-cream border border-gold/20 px-6 py-3.5 md:px-8 md:py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow w-full sm:w-auto"
               >
                 <MessageSquare className="w-4 h-4 text-[#25D366] fill-[#25D366]/10" />
                 <span>WhatsApp Us</span>
@@ -100,8 +100,8 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Categories Grid: Desktop 3, Tablet 2, Mobile 1 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Categories Grid: Desktop 4, Tablet 2, Mobile 1 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {categories.map((cat) => (
             <CategoryCard key={cat.name} category={cat} />
           ))}

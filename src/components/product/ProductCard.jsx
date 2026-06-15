@@ -4,7 +4,7 @@ import { WHATSAPP_NUMBER } from '../../utils/constants';
 
 export default function ProductCard({ product }) {
   const { id, name, category, description, price, images } = product;
-  const primaryImage = images && images.length > 0 ? images[0] : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80';
+  const primaryImage = images && images.length > 0 && images[0] ? images[0] : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80';
 
   // WhatsApp order link formation
   const orderMessage = encodeURIComponent(`Hi Vaishus Hub,
@@ -22,7 +22,7 @@ Please guide me regarding payment and delivery. Thank you!`);
   return (
     <div className="group bg-white rounded-2xl border border-gold/10 overflow-hidden shadow-md hover:shadow-xl hover:border-gold/30 transition-all duration-500 flex flex-col h-full transform hover:-translate-y-1">
       {/* Image Container */}
-      <div className="relative aspect-w-4 overflow-hidden bg-cream-dark">
+      <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark">
         <img
           src={primaryImage}
           alt={name}
@@ -41,7 +41,7 @@ Please guide me regarding payment and delivery. Thank you!`);
       </div>
 
       {/* Info Body */}
-      <div className="p-5 flex flex-col flex-grow">
+      <div className="p-4 sm:p-5 flex flex-col flex-grow">
         <h3 className="font-serif text-lg font-bold text-luxury-black group-hover:text-gold transition-colors duration-300 line-clamp-1 mb-1">
           {name}
         </h3>
@@ -56,10 +56,10 @@ Please guide me regarding payment and delivery. Thank you!`);
         </p>
 
         {/* Buttons Action Group */}
-        <div className="grid grid-cols-2 gap-2 mt-auto">
+        <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2 sm:gap-2 mt-auto">
           <Link
             to={`/product/${id}`}
-            className="flex items-center justify-center space-x-1.5 bg-cream hover:bg-cream-dark text-luxury-charcoal border border-gold/10 px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300"
+            className="flex items-center justify-center space-x-1.5 bg-cream hover:bg-cream-dark text-luxury-charcoal border border-gold/10 px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 w-full"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>View Details</span>
@@ -69,7 +69,7 @@ Please guide me regarding payment and delivery. Thank you!`);
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center space-x-1.5 bg-luxury-black text-cream-light hover:bg-gold hover:text-luxury-black px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 shadow-sm hover:shadow"
+            className="flex items-center justify-center space-x-1.5 bg-luxury-black text-cream-light hover:bg-gold hover:text-luxury-black px-3 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 shadow-sm hover:shadow w-full"
           >
             <Phone className="w-3.5 h-3.5" />
             <span>Order On WhatsApp</span>

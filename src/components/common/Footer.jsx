@@ -29,12 +29,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gold/10">
 
           {/* Brand Info */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="font-serif text-xl font-bold text-gold tracking-widest mb-4">VAiSHU's Hub</h3>
-            <p className="text-xs leading-relaxed text-cream-light/65 mb-4 max-w-xs">
+            <p className="text-xs leading-relaxed text-cream-light/65 mb-4 max-w-xs mx-auto md:mx-0">
               Handcrafted jewellery made with love, patience, and fine attention to detail. Creating timeless treasures that bring classic charm and luxury to your everyday style.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="https://instagram.com/VAiSHU's_Hub6768"
                 target="_blank"
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-serif text-sm font-semibold text-gold tracking-wider uppercase mb-4">Quick Links</h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Collections Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-serif text-sm font-semibold text-gold tracking-wider uppercase mb-4">Collections</h4>
             <ul className="space-y-2 text-xs">
               {CATEGORIES.map((col) => (
@@ -97,31 +97,31 @@ export default function Footer() {
           </div>
 
           {/* Contact Details */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-serif text-sm font-semibold text-gold tracking-wider uppercase mb-4">Contact Info</h4>
             <ul className="space-y-3 text-xs">
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
                 <span>+91 98765 43210</span>
               </li>
-              <li className="flex items-center space-x-3">
+              <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
                 <a href="mailto:info@vaishushub.com" className="hover:text-gold transition-colors">info@vaishushub.com</a>
               </li>
-              <li className="flex items-start space-x-3">
+              <li className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-                <span className="leading-relaxed">Vaishus Hub Studio,<br />Mumbai, Maharashtra, India</span>
+                <span className="leading-relaxed text-center md:text-left">Vaishus Hub Studio,<br />Mumbai, Maharashtra, India</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Column */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="font-serif text-sm font-semibold text-gold tracking-wider uppercase mb-4">Newsletter</h4>
-            <p className="text-xs text-cream-light/65 mb-4 leading-relaxed">
+            <p className="text-xs text-cream-light/65 mb-4 leading-relaxed max-w-sm mx-auto md:mx-0">
               Subscribe to get notified about new collections, seasonal drops, and custom jewellery availability.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex font-sans">
+            <form onSubmit={(e) => e.preventDefault()} className="flex max-w-md mx-auto md:mx-0 font-sans">
               <input
                 type="email"
                 placeholder="Your email address"

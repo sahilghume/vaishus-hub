@@ -11,8 +11,8 @@ export function getDirectImageUrl(url) {
     // Match /file/d/[id] or ?id=[id]
     const matches = urlStr.match(/\/file\/d\/([a-zA-Z0-9-_]+)/) || urlStr.match(/[?&]id=([a-zA-Z0-9-_]+)/);
     if (matches && matches[1]) {
-      // Return the high-performance, cookie-free Google Drive direct hosting link
-      return `https://lh3.googleusercontent.com/d/${matches[1]}`;
+      // Return the robust Google Drive direct thumbnail hosting link (less blocked by adblockers)
+      return `https://drive.google.com/thumbnail?id=${matches[1]}&sz=w1000`;
     }
   }
   return urlStr;
@@ -188,24 +188,46 @@ export async function fetchProducts() {
       throw new Error('Database response did not return an array of items');
     }
 
-    // Map raw items into uniform product structure
+    // Map raw items into uniform product structure with robust column name synonyms
     const mappedProducts = rawItems
       .map((item, index) => {
-        const id = parseInt(item.id) || (index + 1);
-        const name = item.name ? item.name.toString().trim() : '';
-        const category = mapCategory(item.category);
-        const price = cleanPrice(item.price);
-        const description = item.description ? item.description.toString().trim() : '';
-        const image = getDirectImageUrl(item.image);
-        const active = cleanActive(item.active);
+        // Support synonyms for ID column
+        const rawId = item.id || item['product id'] || item['produt id'] || item.number || '';
+        const id = parseInt(rawId) || (index + 1);
+        
+        // Support synonyms for Name column
+        const rawName = item.name || item.title || item.product || item['product name'] || '';
+        const name = rawName ? rawName.toString().trim() : '';
+        
+        // Support synonyms for Category column
+        const rawCategory = item.category || item.type || item.collection || '';
+        const category = mapCategory(rawCategory);
+        
+        // Support synonyms for Price column
+        const rawPrice = item.price || item.cost || item.rate || item.mrp || 0;
+        const price = cleanPrice(rawPrice);
+        
+        // Support synonyms for Description column
+        const rawDesc = item.description || item.desc || item.details || item.about || '';
+        const description = rawDesc ? rawDesc.toString().trim() : '';
+        
+        // Support synonyms for Image column
+        const rawImage = item.image || item['image url'] || item.imageurl || item.photo || item.picture || item.img || item['product image'] || '';
+        const image = getDirectImageUrl(rawImage);
+        
+        // Support synonyms for Active column
+        const rawActive = item.active || item.status || item.show || item.visible;
+        const active = cleanActive(rawActive);
 
         // Advanced features: support comma-separated images and materials in sheet
-        const images = item.images 
-          ? item.images.toString().split(',').map(img => getDirectImageUrl(img.trim())) 
+        const rawImages = item.images || item.photos || item.pictures || item.gallery || item['secondary images'] || '';
+        const images = rawImages 
+          ? rawImages.toString().split(',').map(img => getDirectImageUrl(img.trim())) 
           : [image].filter(Boolean);
           
-        const materials = item.materials 
-          ? item.materials.toString().split(',').map(m => m.trim()) 
+        const rawMaterials = item.materials || item.material || item.ingredients || '';
+        const materials = rawMaterials 
+          ? rawMaterials.toString().split(',').map(m => m.trim()) 
           : ['Handcrafted', 'Premium Quality'];
 
         return {
