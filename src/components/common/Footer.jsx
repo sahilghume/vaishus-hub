@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
-                href="https://instagram.com/VAiSHU's_Hub6768"
+                href="https://www.instagram.com/vaishus_hub6768?igsh=MTlibXV5OTVjeDdjeA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cream-light/60 hover:text-gold p-1.5 rounded-full border border-gold/10 hover:border-gold/50 transition-all duration-300"
@@ -54,7 +54,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4" />
               </a>
               <a
-                href="mailto:info@vaishushub.com"
+                href="mailto:vaishuhub6768@gmail.com"
                 className="text-cream-light/60 hover:text-gold p-1.5 rounded-full border border-gold/10 hover:border-gold/50 transition-all duration-300"
                 aria-label="Email Link"
               >
@@ -102,11 +102,11 @@ export default function Footer() {
             <ul className="space-y-3 text-xs">
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 8591656768</span>
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-                <a href="mailto:info@vaishushub.com" className="hover:text-gold transition-colors">info@vaishushub.com</a>
+                <a href="mailto:vaishuhub6768@gmail.com" className="hover:text-gold transition-colors">vaishuhub6768@gmail.com</a>
               </li>
               <li className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
@@ -142,7 +142,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-xs text-cream-light/40 space-y-4 md:space-y-0">
           <div>
-            &copy; {currentYear} <span className="font-serif text-gold font-medium">Vaishus Hub</span>. All rights reserved.
+            &copy; {currentYear} <span className="font-serif text-gold font-medium">VAiSHU's Hub</span>. All rights reserved.
           </div>
           <div className="flex items-center space-x-1">
             <span>Handcrafted with</span>

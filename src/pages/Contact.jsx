@@ -32,7 +32,7 @@ const WhatsAppIcon = (props) => (
 );
 
 export default function Contact() {
-  const whatsappMessage = encodeURIComponent("Hi Vaishus Hub, I would like to get in touch regarding a handcrafted jewellery inquiry!");
+  const whatsappMessage = encodeURIComponent("Hi VAiSHU'S Hub, I would like to get in touch regarding a handcrafted jewellery inquiry!");
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
   return (
@@ -79,7 +79,7 @@ export default function Contact() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com/vaishushub"
+            href="https://www.instagram.com/vaishus_hub6768?igsh=MTlibXV5OTVjeDdjeA=="
             target="_blank"
             rel="noopener noreferrer"
             className="group flex flex-col items-center p-5 rounded-2xl bg-cream hover:bg-cream-dark transition-all duration-300 border border-gold/5"
@@ -97,7 +97,7 @@ export default function Contact() {
 
           {/* Email */}
           <a
-            href="mailto:info@vaishushub.com"
+            href="mailto:vaishuhub6768@gmail.com"
             className="group flex flex-col items-center p-5 rounded-2xl bg-cream hover:bg-cream-dark transition-all duration-300 border border-gold/5"
           >
             <div className="p-3 bg-gold/10 text-gold-dark rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -107,7 +107,7 @@ export default function Contact() {
               Email Address
             </h3>
             <p className="text-xs text-luxury-charcoal/70 break-all font-sans font-light">
-              info@vaishushub.com
+              vaishuhub6768@gmail.com
             </p>
           </a>
         </div>

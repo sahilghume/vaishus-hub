@@ -78,7 +78,7 @@ export default function Products() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade">
-      
+
       {/* Page Header */}
       <div className="text-center space-y-4 mb-10">
         <div className="inline-flex items-center justify-center p-2 bg-gold/10 rounded-xl mb-1">
@@ -98,8 +98,8 @@ export default function Products() {
             <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
             <span>{error}</span>
           </div>
-          <button 
-            onClick={refetch} 
+          <button
+            onClick={refetch}
             className="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors cursor-pointer flex items-center space-x-1"
           >
             <RefreshCw className="w-3 h-3" />

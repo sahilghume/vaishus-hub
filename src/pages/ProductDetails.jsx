@@ -93,7 +93,7 @@ Please guide me regarding payment and delivery. Thank you!`);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade">
-      
+
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
@@ -105,7 +105,7 @@ Please guide me regarding payment and delivery. Thank you!`);
 
       {/* Main Details Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-gold/10">
-        
+
         {/* Left Side: Image Gallery (Col 1-7) */}
         <div className="lg:col-span-7 space-y-4">
           {/* Main Visual Display */}
@@ -118,7 +118,7 @@ Please guide me regarding payment and delivery. Thank you!`);
             {/* Handcrafted Badge */}
             <div className="absolute top-4 left-4 bg-luxury-black/85 text-gold border border-gold/30 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest flex items-center space-x-1 shadow-md">
               <Sparkles className="w-4 h-4 text-gold fill-current" />
-              <span>100% Handmade</span>
+              {/* <span>100% Handmade</span>*/}
             </div>
           </div>
 
@@ -129,9 +129,8 @@ Please guide me regarding payment and delivery. Thank you!`);
                 <button
                   key={i}
                   onClick={() => setSelectedImage(img)}
-                  className={`relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    activeImage === img ? 'border-gold shadow-md' : 'border-transparent hover:border-gold/50'
-                  }`}
+                  className={`relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-300 ${activeImage === img ? 'border-gold shadow-md' : 'border-transparent hover:border-gold/50'
+                    }`}
                 >
                   <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" />
                 </button>
@@ -143,17 +142,17 @@ Please guide me regarding payment and delivery. Thank you!`);
         {/* Right Side: Product Details & Buying Actions (Col 8-12) */}
         <div className="lg:col-span-5 flex flex-col justify-between text-left space-y-6">
           <div className="space-y-4">
-            
+
             {/* Category Breadcrumb */}
             <div className="text-xs text-gold-dark font-semibold tracking-wider uppercase">
               {category} Collection
             </div>
-            
+
             {/* Name */}
             <h1 className="font-serif text-3xl sm:text-4xl font-bold text-luxury-black tracking-wide leading-tight">
               {name}
             </h1>
-            
+
             {/* Pricing */}
             <div className="text-2xl font-sans font-semibold text-luxury-black">
               ₹{price.toLocaleString('en-IN')}
@@ -208,7 +207,7 @@ Please guide me regarding payment and delivery. Thank you!`);
               <Phone className="w-4 h-4" />
               <span>Order on WhatsApp</span>
             </a>
-            
+
             <Link
               to="/products"
               className="flex items-center justify-center w-full bg-white text-luxury-charcoal hover:bg-cream border border-gold/15 py-3.5 rounded-2xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-3xs"

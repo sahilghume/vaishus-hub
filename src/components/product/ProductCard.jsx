@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
   const primaryImage = images && images.length > 0 && images[0] ? images[0] : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80';
 
   // WhatsApp order link formation
-  const orderMessage = encodeURIComponent(`Hi Vaishus Hub,
+  const orderMessage = encodeURIComponent(`Hi VAiSHU'S Hub,
 
 I would like to order this handcrafted item:
 
@@ -32,7 +32,7 @@ Please guide me regarding payment and delivery. Thank you!`);
         {/* Handmade Gold Badge */}
         <div className="absolute top-3 left-3 bg-luxury-black/80 backdrop-blur-xs text-gold border border-gold/30 px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase flex items-center space-x-1 shadow-sm">
           <Sparkles className="w-3 h-3 text-gold fill-current" />
-          <span>Handcrafted</span>
+          {/*  <span>Handcrafted</span> */}
         </div>
         {/* Category Badge */}
         <div className="absolute top-3 right-3 bg-cream/90 text-luxury-charcoal px-2.5 py-1 rounded-full text-[10px] font-medium tracking-wide uppercase shadow-sm">
@@ -45,7 +45,7 @@ Please guide me regarding payment and delivery. Thank you!`);
         <h3 className="font-serif text-lg font-bold text-luxury-black group-hover:text-gold transition-colors duration-300 line-clamp-1 mb-1">
           {name}
         </h3>
-        
+
         {/* Price Tag in INR */}
         <div className="text-gold-dark font-sans font-semibold text-base mb-2">
           ₹{price.toLocaleString('en-IN')}
@@ -64,7 +64,7 @@ Please guide me regarding payment and delivery. Thank you!`);
             <Eye className="w-3.5 h-3.5" />
             <span>View Details</span>
           </Link>
-          
+
           <a
             href={whatsappUrl}
             target="_blank"
