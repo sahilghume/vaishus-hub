@@ -33,7 +33,7 @@ export default function Home() {
           {/* Copy Column */}
           <div className="space-y-6 text-left max-w-xl">
             <div className="inline-flex items-center space-x-2 bg-gold/10 text-gold-dark border border-gold/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest">
-              <span>Handcrafted WithLove</span>
+              <span>Handcrafted With Love</span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl font-bold text-luxury-black tracking-wide leading-none">
