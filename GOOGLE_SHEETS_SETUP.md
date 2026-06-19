@@ -13,12 +13,12 @@ Follow these simple steps to configure your own Google Sheet as your product dat
 2. Name the sheet (e.g., `Vaishus Hub Products`).
 3. Set up the exact headers in the **first row (Row 1)**:
 
-| id | name | category | price | description | image | active |
-|---|---|---|---|---|---|---|
+| id | name | category | price | description | image1 | image2 | image3 | image4 | image5 | active |
+|---|---|---|---|---|---|---|---|---|---|---|
 
 > [!IMPORTANT]
 > - Row headers must match these names exactly (they are case-insensitive and whitespace-trimmed).
-> - You can optionally add columns for `images` (comma-separated URLs for secondary details images) and `materials` (comma-separated materials).
+> - You can optionally add a column for `materials` (comma-separated list of materials used, e.g. `Freshwater Pearls, 18k Gold Plated`).
 
 ### Step 2: Share and Connect to Your Website
 You can use either of the following two free, reliable methods:
@@ -55,7 +55,11 @@ You can use either of the following two free, reliable methods:
   - **category**: Must be one of the supported categories: `earrings`, `necklaces`, `bracelets`, or `custom-gifts`.
   - **price**: Enter a numeric value (e.g. `1499` or `₹1,499`).
   - **description**: Enter a descriptive story or notes about the jewelry.
-  - **image**: Enter the URL of the image (see image management details below).
+  - **image1**: Enter the primary product image URL (mandatory).
+  - **image2**: Enter the second image URL (optional).
+  - **image3**: Enter the third image URL (optional).
+  - **image4**: Enter the fourth image URL (optional).
+  - **image5**: Enter the fifth image URL (optional).
   - **active**: Enter `TRUE` or `true`.
 * **Step 4:** The sheet saves automatically. Refresh your website, and your new product will be visible in the appropriate collection page!
 
@@ -78,12 +82,14 @@ You have two options to remove a product:
 
 ---
 
-### HOW TO CHANGE PRODUCT IMAGE
+### HOW TO CHANGE PRODUCT IMAGES
 
 1. Upload your image to an image host (Google Drive, Cloudinary, Imgur, etc.).
 2. Copy the share link or direct URL of the new image.
 3. Open Google Sheets and locate the product row.
-4. Replace the existing URL in the **image** cell with the new URL.
+4. Paste the URL into any of the image columns: `image1`, `image2`, `image3`, `image4`, or `image5`.
+   - The product card will display only the first image (`image1`).
+   - The product details page will showcase a beautiful slide gallery containing all non-empty image columns (up to 5).
 
 ---
 
@@ -96,7 +102,7 @@ You can upload photos directly to Google Drive, share them, and paste the link.
 1. Upload your photo to Google Drive.
 2. Right-click the file, choose **Share** > **Share**, and set General Access to **"Anyone with the link can view"**.
 3. Click **Copy link** (e.g., `https://drive.google.com/file/d/FILE_ID/view?usp=sharing`).
-4. Paste this link directly into the **image** column of the Google Sheet. 
+4. Paste this link directly into any of the image columns (`image1` to `image5`) in the Google Sheet. 
 > [!TIP]
 > The website contains built-in logic that automatically extracts the `FILE_ID` and converts it into a high-performance, direct image download link (`https://lh3.googleusercontent.com/d/FILE_ID`).
 
@@ -110,9 +116,7 @@ Any public direct image link ending in standard formats (e.g. `.png`, `.jpg`, `.
 
 ## Part 4: Advanced Customizations (Optional)
 
-You can customize the details page elements directly from the spreadsheet by adding these optional columns:
+You can customize the details page elements directly from the spreadsheet by adding this optional column:
 
-1. **images**: Add a column named `images` and enter a comma-separated list of image links to enable a thumbnail gallery for multiple photos on the Product Details page.
-   * *Example*: `url1, url2, url3`
-2. **materials**: Add a column named `materials` and enter a comma-separated list of raw materials to render customized material badges.
+1. **materials**: Add a column named `materials` and enter a comma-separated list of raw materials to render customized material badges.
    * *Example*: `Freshwater Pearls, 18k Gold Plated, Sterling Silver`

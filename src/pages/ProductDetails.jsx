@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useProducts } from '../context/ProductContext';
 import ProductCard from '../components/product/ProductCard';
 import { WHATSAPP_NUMBER } from '../utils/constants';
-import { Phone, ArrowLeft, Sparkles, Check, Heart, ShieldCheck, HelpCircle } from 'lucide-react';
+import { Phone, ArrowLeft, Sparkles, Check, Heart, ShieldCheck, HelpCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -12,8 +12,15 @@ export default function ProductDetails() {
 
   const product = products.find((p) => p.id === parseInt(id));
 
-  // Selected Image State (defaults to null, representing no manual selection)
-  const [selectedImage, setSelectedImage] = useState(null);
+  // Active Image Index State (defaults to 0, representing the first image)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [prevId, setPrevId] = useState(id);
+
+  // Reset active image index whenever the product ID changes
+  if (id !== prevId) {
+    setPrevId(id);
+    setActiveIndex(0);
+  }
 
   // If loading, show a premium skeleton loader for details page
   if (loading) {
@@ -66,12 +73,21 @@ export default function ProductDetails() {
 
   const { name, category, description, price, materials, images } = product;
 
-  // Compute active image dynamically: fallback to the first product image if no manual selection exists
-  const activeImage = (images && images.includes(selectedImage) && selectedImage)
-    ? selectedImage
-    : (images && images.length > 0 && images[0])
-      ? images[0]
-      : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80';
+  // Compute active image dynamically based on activeIndex
+  const activeImage = images && images.length > 0
+    ? images[activeIndex] || images[0]
+    : 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80';
+
+  // Navigation handlers for the image gallery
+  const handlePrev = () => {
+    if (!images || images.length <= 1) return;
+    setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    if (!images || images.length <= 1) return;
+    setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   // Order message customization
   const orderMessage = encodeURIComponent(`Hi Vaishus Hub,
@@ -109,12 +125,31 @@ Please guide me regarding payment and delivery. Thank you!`);
         {/* Left Side: Image Gallery (Col 1-7) */}
         <div className="lg:col-span-7 space-y-4">
           {/* Main Visual Display */}
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gold/10 bg-cream shadow-md relative">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gold/10 bg-cream shadow-md relative group">
             <img
               src={activeImage}
               alt={name}
               className="w-full h-full object-cover transition-all duration-300"
             />
+            {/* Previous and Next Buttons (Only if multiple images exist) */}
+            {images && images.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-luxury-black/75 hover:bg-gold text-cream-light hover:text-luxury-black border border-gold/20 hover:border-gold transition-all duration-300 z-10 shadow-md hover:scale-105 active:scale-95"
+                  aria-label="Previous Image"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-luxury-black/75 hover:bg-gold text-cream-light hover:text-luxury-black border border-gold/20 hover:border-gold transition-all duration-300 z-10 shadow-md hover:scale-105 active:scale-95"
+                  aria-label="Next Image"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </>
+            )}
             {/* Handcrafted Badge */}
             <div className="absolute top-4 left-4 bg-luxury-black/85 text-gold border border-gold/30 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest flex items-center space-x-1 shadow-md">
               <Sparkles className="w-4 h-4 text-gold fill-current" />
@@ -124,12 +159,12 @@ Please guide me regarding payment and delivery. Thank you!`);
 
           {/* Thumbnail list (Only render if multiple images exist) */}
           {images && images.length > 1 && (
-            <div className="flex gap-3 overflow-x-auto pb-2">
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gold/20 scrollbar-track-transparent">
               {images.map((img, i) => (
                 <button
                   key={i}
-                  onClick={() => setSelectedImage(img)}
-                  className={`relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-300 ${activeImage === img ? 'border-gold shadow-md' : 'border-transparent hover:border-gold/50'
+                  onClick={() => setActiveIndex(i)}
+                  className={`relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-300 ${activeIndex === i ? 'border-gold shadow-md' : 'border-transparent hover:border-gold/50'
                     }`}
                 >
                   <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" />

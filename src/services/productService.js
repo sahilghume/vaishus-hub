@@ -211,19 +211,34 @@ export async function fetchProducts() {
         const rawDesc = item.description || item.desc || item.details || item.about || '';
         const description = rawDesc ? rawDesc.toString().trim() : '';
         
-        // Support synonyms for Image column
-        const rawImage = item.image || item['image url'] || item.imageurl || item.photo || item.picture || item.img || item['product image'] || '';
-        const image = getDirectImageUrl(rawImage);
+        // Collect image1 to image5 columns (with lowercase support, check for space synonyms just in case)
+        const img1 = item.image1 || item['image 1'] || '';
+        const img2 = item.image2 || item['image 2'] || '';
+        const img3 = item.image3 || item['image 3'] || '';
+        const img4 = item.image4 || item['image 4'] || '';
+        const img5 = item.image5 || item['image 5'] || '';
+
+        // Ignore empty image columns and only include valid image URLs processed via getDirectImageUrl
+        let images = [img1, img2, img3, img4, img5]
+          .map(img => img ? getDirectImageUrl(img.toString().trim()) : '')
+          .filter(img => img !== '');
+
+        // Fallback for compatibility (e.g. if the sheet uses old columns, or fallback/local data is used):
+        if (images.length === 0) {
+          const rawImage = item.image || item['image url'] || item.imageurl || item.photo || item.picture || item.img || item['product image'] || '';
+          const fallbackImage = getDirectImageUrl(rawImage);
+          const rawImages = item.images || item.photos || item.pictures || item.gallery || item['secondary images'] || '';
+          images = rawImages 
+            ? rawImages.toString().split(',').map(img => getDirectImageUrl(img.trim())) 
+            : [fallbackImage].filter(Boolean);
+        }
+
+        // Define primary image as images[0] (which corresponds to image1)
+        const image = images[0] || '';
         
         // Support synonyms for Active column
         const rawActive = item.active || item.status || item.show || item.visible;
         const active = cleanActive(rawActive);
-
-        // Advanced features: support comma-separated images and materials in sheet
-        const rawImages = item.images || item.photos || item.pictures || item.gallery || item['secondary images'] || '';
-        const images = rawImages 
-          ? rawImages.toString().split(',').map(img => getDirectImageUrl(img.trim())) 
-          : [image].filter(Boolean);
           
         const rawMaterials = item.materials || item.material || item.ingredients || '';
         const materials = rawMaterials 
