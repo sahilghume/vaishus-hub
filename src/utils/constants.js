@@ -15,8 +15,8 @@ export const CATEGORIES = [
     image: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=80"
   },
   {
-    name: "Pearl & Bead Jewellery",
-    slug: "pearl-bead-jewellery",
+    name: "Luxury Mangalsutra",
+    slug: "luxury-mangalsutra",
     description: "Elegant creations made with natural pearls and hand-picked beads.",
     image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80"
   },
